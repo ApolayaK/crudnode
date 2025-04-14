@@ -9,7 +9,10 @@ router.get('/', (req, res)=>{
     if (error){
       throw error;
     }else{
-      res.send(results);
+      //Enviamos "json" los datos al navegador
+      //res.send(results);
+      //res.render('edit', {dev: 'Mariana', skill: 'JS', friends: ['A1','A2','A3']});
+      res.render('index', {registros: results})
     }
   });
 });
