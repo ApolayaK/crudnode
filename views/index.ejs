@@ -18,7 +18,7 @@
           <a href="./create.ejs" class="btn btn-sm btn-primary">Registrar</a>
         </div>
         <div class="card-body">
-          <table>
+          <table class="table table-sm table-striped">
             <thead>
               <tr>
                 <th>ID</th>
@@ -29,15 +29,15 @@
               </tr>
             </thead>
             <tbody>
-              <% registros.forEach(element => { %>
+              <% registros.forEach(vehiculo => { %>
               <tr>
                 <td><%= vehiculo.id %></td>
-                <td><%= vehiculo.Camioneta %></td>
-                <td><%= vehiculo.Nissan %></td>
-                <td><%= vehiculo.Gris %></td>
+                <td><%= vehiculo.tipo %></td>
+                <td><%= vehiculo.marca %></td>
+                <td><%= vehiculo.color %></td>
                 <td>
-                  <a href="#">Editar</a>
-                  <a href="#">Eliminar</a>
+                  <a href="./edit/<%= vehiculo.id %>" class="btn btn-sm btn-info">Editar</a>
+                  <a href="./delete" class="btn btn-sm btn-danger">Eliminar</a>
                 </td>
               </tr>                 
               <% }) %>              
