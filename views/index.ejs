@@ -37,7 +37,7 @@
                 <td><%= vehiculo.color %></td>
                 <td>
                   <a href="./edit/<%= vehiculo.id %>" class="btn btn-sm btn-info">Editar</a>
-                  <a href="./delete" class="btn btn-sm btn-danger">Eliminar</a>
+                  <a href="./delete/<%= vehiculo.id %>" class="btn btn-sm btn-danger delete">Eliminar</a>
                 </td>
               </tr>                 
               <% }) %>              
@@ -52,5 +52,21 @@
   <footer>
     <p></p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lnkEliminar = document.querySelectorAll(".delete"); //array
+
+      lnkEliminar.forEach(enlace => {
+          enlace.addEventListener("click",(event) => {
+            event.preventDefault(); //Detenemos el evento click de cada <a>
+
+              if (confirm("¿Esta seguro de elimnianr?")){
+                window.location.href = event.target.getAttibute("href");
+              }
+        });
+      })
+    });
+  </script>
 </body>
 </html>
